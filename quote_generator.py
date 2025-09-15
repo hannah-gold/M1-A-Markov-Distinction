@@ -1,14 +1,4 @@
-
-"""
-Markov 'Quote of the Day' (order-2) — simple, self-contained.
-- Deterministic per day: same quote for the same local date
-- Prints with a random ANSI color (also deterministic per day)
-Run:
-    python markov_quote.py
-"""
-
 import random
-from datetime import date
 import sys
 import re
 
@@ -48,7 +38,7 @@ def tokenize(text):
     return tokens
 
 def build_markov_model(quotes, order=2):
-    """Build an order-`order` Markov model as dict: state(tuple)->list of next tokens."""
+    """ Markov model as dict: state(tuple)->list of next tokens."""
     model = {}
     starts = []  # starting states for sentences
     for q in quotes:
