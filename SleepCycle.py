@@ -137,7 +137,6 @@ class SleepCycle:
         # Save to file and close the figure
         fig.savefig(save_path, facecolor=fig.get_facecolor(), bbox_inches="tight", pad_inches=0.05)
         plt.close(fig)
-        print(f"Saved abstract art to: {save_path}")
 
     def graph_sleep(self, stage, epoch_minutes=5):
         """
@@ -172,12 +171,12 @@ def main():
         "Deep": {"Awake": 0.02, "Light": 0.20, "Deep": 0.70, "REM": 0.08},
         "REM": {"Awake": 0.05, "Light": 0.60, "Deep": 0.05, "REM": 0.30}
     })
-
+    
     # Simulates 8 hours in 5-minute epochs (96 steps)
     stages = sleep_cycle.simulate(sleep_duration=8, epoch_minutes=5, current_stage="Awake")
 
     sleep_cycle.graph_sleep(stages, epoch_minutes=5)
-
+    
     sleep_cycle.draw_abstract_art(stages, save_path="sleep_art.png")
 
 if __name__ == "__main__":
